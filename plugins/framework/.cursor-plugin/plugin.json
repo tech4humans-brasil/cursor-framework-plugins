@@ -1,0 +1,9 @@
+{
+  "name": "T4H Framework",
+  "version": "0.0.0",
+  "description": "T4H Framework plugin for Cursor",
+  "commands": "./commands/",
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "hooks": "./hooks/"
+}

@@ -1,0 +1,15 @@
+---
+description: Baseline coding standards for readable, maintainable changes
+alwaysApply: true
+---
+
+coding-standards:
+
+- Prefer small, focused changes with a clear purpose.
+- Use descriptive names for functions, variables, and files.
+- When a file defines a class, the filename must use CamelCase (for example, `InvoiceRepository.ts`).
+- When a file defines a tool, function, or similar utility, the filename must use kebab-case (for example, `create-invoice-report.ts`).
+- Add concise comments only when non-obvious logic needs context.
+- Keep user-facing documentation updated when behavior changes.
+- Always add a blank line between statements, blocks, and logical sections — never leave code visually suffocated.
+- Omit curly braces for single-line `if`, `else`, or any control-flow statement: `if (condition) doSomething()`.

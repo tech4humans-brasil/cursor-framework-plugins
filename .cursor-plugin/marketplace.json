@@ -1,0 +1,19 @@
+{
+    "name": "cursor-plugin-framework",
+    "owner": {
+        "name": "Tech for Humans",
+        "email": "suporte@tech4h.com.br"
+    },
+    "metadata": {
+        "description": "Framework marketplace template for Cursor plugins",
+        "version": "0.1.0",
+        "pluginRoot": "plugins"
+    },
+    "plugins": [
+        {
+            "name": "framework",
+            "source": "./plugins/framework",
+            "description": "Full-featured plugin with rules, skills and hooks"
+        }
+    ]
+}

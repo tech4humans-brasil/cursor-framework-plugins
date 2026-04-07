@@ -1,0 +1,28 @@
+---
+description: Secure coding principles, secrets handling, and environment configuration
+alwaysApply: true
+globs:
+  - "**/*.{ts,tsx,js,jsx}"
+---
+
+security:
+
+- Treat all external and user-controlled input as untrusted: validate, sanitize, and use safe APIs; avoid injection (SQL, command, path, template).
+- Apply least privilege for permissions, scopes, and exposed surfaces; fail closed on errors; avoid logging secrets, tokens, full payloads with PII, or stack traces that leak internals in production paths.
+- **Never hardcode credentials or secrets** (API keys, tokens, passwords, client secrets, private keys, connection strings with embedded passwords, OAuth secrets, etc.). Do not commit real values in source, tests, examples, or comments.
+
+## Environment variables (`@t4h.framework/core`)
+
+- Read configuration from the typed `env` object provided by `@t4h.framework/core` (backed by `.env` / deployment env), not from literals in application code.
+- Centralize required variables in a dedicated module (e.g. `constants/environment.ts`), import `env` from `@t4h.framework/core`, export named constants from `env.*`, and validate required values at startup (throw a clear `TypeError` or similar when a required variable is missing).
+- Example pattern:
+
+```typescript
+import { env } from "@t4h.framework/core";
+
+export const CLIENT_SECRET = env.CLIENT_SECRET!;
+
+if (!CLIENT_SECRET) throw new TypeError("CLIENT_SECRET is not defined");
+```
+
+- Prefer non-secret defaults in code only when they are public and safe; anything sensitive or environment-specific must come from `env` / `.env` and documented variable names, never inlined.
